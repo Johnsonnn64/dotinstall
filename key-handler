@@ -1,0 +1,17 @@
+#!/bin/sh
+while read file
+  do
+    case "$1" in
+    "w") cp $file ~/personal/pictures/wall.png && feh --bg-fill --no-fehbg "$file" ;;
+    "y")
+      echo -n "$file" | tr -d '\n' | xclip -selection clipboard &&
+      notify-send "$file copied to clipboard" & ;;
+    "Y")
+      readlink -f "$file" | tr -d '\n' | xclip -selection clipboard &&
+      notify-send "$(readlink -f "$file") copied to clipboard" & ;;
+    "d")
+      [ "$(printf "No\\nYes" | dmenu -x 650 -y 400 -z 620 -i -p "Really delete $file?")" = "Yes" ] && rm "$file" && notify-send "$file deleted." ;;
+    "g")  setsid -f gimp "$file" ;;
+    "i")  notify-send "File information" "$(file "$file")" ;;
+  esac
+done

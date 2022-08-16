@@ -1,0 +1,11 @@
+#!/bin/sh
+
+current=$(cat /sys/class/backlight/*/brightness)
+new=$(( $current + 25 ))
+
+if [ "$new" -gt 255 ]; then 
+  new=255
+fi
+
+echo "$new" | sudo tee  -a /sys/class/backlight/*/brightness
+echo "$new" > ~/.cache/brightness
