@@ -63,10 +63,6 @@ fcitx5:
 fonts:
 	$(PACMAN) $(FONTS) 
 
-init:
-	$(MKDIR) /etc/modprobe.d/
-	echo "blacklist pcspkr" | sudo tee /etc/modprobe.d/blacklist.conf
-
 keyd:
 	yay -S keyd
 	$(MKDIR) /etc/keyd/
@@ -95,6 +91,10 @@ nsxiv:
 	yay -S nsxiv
 	$(MKDIR) $(HOME)/.config/nsxiv/exec/
 	$(LN) $(PWD)/key-handler $(HOME)/.config/nsxiv/exec/
+
+pcspkr:
+	$(MKDIR) /etc/modprobe.d/
+	echo "blacklist pcspkr" | sudo tee /etc/modprobe.d/blacklist.conf
 
 picom:
 	yay -S picom-jonaburg-fix
