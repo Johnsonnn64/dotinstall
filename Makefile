@@ -97,14 +97,6 @@ keyd:
 	$(MKDIR) /etc/keyd/
 	sudo $(LN) $(PWD)/default.conf /etc/keyd/
 
-lf:
-	yay -S lf
-	$(PACMAN) ueberzug bat 
-	$(LN) $(PWD)/lf $(HOME)/.config/
-	$(MKDIR) $(HOME)/workspace/git/
-	git clone https://github.com/cirala/lfimg $(HOME)/workspace/git/lfimg
-	cd $(HOME)/workspace/git/lfimg && make install
-
 mpv:
 	$(PACMAN) mpv
 	$(MKDIR) $(HOME)/.config/mpv/
