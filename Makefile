@@ -31,6 +31,13 @@ yay:
 base:
 	$(PACMAN) $(BASE)
 	sudo sed -i 's/\#Color/Color\nILoveCandy/' /etc/pacman.conf
+	if [ $(uname --nodename) = "artix" ]; then
+		sudo sed -i '/\# If you want to run .*/i \[universe\]\nServer \= https\:\/\/universe\.artixlinux\.org\/\$arch\n' /etc/pacman.conf
+		$(PACMAN) artix-archlinux-support
+		sudo pacman-key --populate archlinux
+		sudo sed -i '/\# If you want to run .*/i \[extra\]\nInclude \= \/etc\/pacman.d\/mirrorlist-arch\n\n\[community\]\nInclude \= \/etc\/pacman.d\/mirrorlist-arch' /etc/pacman.conf
+	fi
+
 	yay -S $(AUR)
 
 script:
