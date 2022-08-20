@@ -86,6 +86,9 @@ filemanager:
 	git clone https://github.com/cirala/lfimg $(HOME)/workspace/git/lfimg
 	cd $(HOME)/workspace/git/lfimg && make install
 
+fnkeys: 
+	echo options hid_apple fnmode=2 | sudo tee -a /etc/modprobe.d/hid_apple.conf
+
 fonts:
 	$(PACMAN) $(FONTS) 
 
