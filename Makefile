@@ -168,23 +168,4 @@ pdf:
 	$(LN) $(PWD)/zathura $(HOME)/.config/
 
 everything: 
-	#make base
-	#make script
-	#make driver
-	#make dunst
-	#make dwm
-	#make fcitx5
-	#make fonts
-	#make keyd
-	#make lf
-	#make mpv
-	#make npm
-	#make nsxiv
-	#make pcspkr
-	#make picom
-	#make qutebrowser
-	#make shell
-	#make terminal
-	#make tlp 
-	#make xorg
-	#make zathura
+	make yay base driver dunst dwm fcitx5 filemanager fnkeys fonts keyd mpv npm nsxiv pcspkr pdf picom qutebrowser script shell terminal tlp xorg zathura
