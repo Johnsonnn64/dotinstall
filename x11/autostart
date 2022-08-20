@@ -9,7 +9,7 @@ dunst &
 unclutter --start-hidden --timeout 2 -f &
 xrdb merge ~/.config/x11/Xresources_catppuccin &
 feh --bg-fill --no-fehbg ~/personal/pictures/wall.png &
-# sudo cpupower frequency-set --governor conservative &
+sudo keyd &
 
 # run bar script and dwm ( do not remove this )
 ~/workspace/suckless/dwm/scripts/bar.sh &
