@@ -22,17 +22,23 @@ XORG += xorg-xhost xorg-xinit xorg-xinput xorg-xkbcomp xorg-xkbevd xorg-xkbutils
 XORG += xorg-xlsclients xorg-xmodmap xorg-xpr xorg-xprop xorg-xrandr xorg-xrdb xorg-xrefresh xorg-xset 
 XORG += xorg-xsetroot xorg-xvinfo xorg-xwd xorg-xwininfo xorg-xwud xorgproto xsel
 
+# yay:
+#	$(MKDIR) $(HOME)/workspace/git/
+#	cd $(HOME)/workspace/git/
+#	git clone https://aur.archlinux.org/yay.git $(HOME)/workspace/git/yay
+#	cd $(HOME)/workspace/git/yay && makepkg -si
+
 base:
 	$(PACMAN) $(BASE)
 	yay -S $(AUR)
 
-bin:
+script:
 	$(MKDIR) $(HOME)/.local/
 	$(LN) $(PWD)/bin/ $(HOME)/.local/
 
 driver: 
 	$(PACMAN) $(DRIVERS)
-	$(MKDIR) /etc/X11/xorg.conf.d/
+	sudo $(MKDIR) /etc/X11/xorg.conf.d/
 	echo 'Section "Device" \n  Identifier  "AMD Graphics" \n  Driver      "amdgpu" \n  option      "TearFree"  "true" \nEndSection' | sudo tee /etc/X11/xorg.conf.d/20-amd-gpu.conf
 
 dunst:
@@ -48,11 +54,9 @@ dwm:
 	git clone https://github.com/Johnsonnn64/dwm $(HOME)/workspace/suckless/dwm/
 	$(MKDIR) $(HOME)/.local/share/fonts/
 	cp $(HOME)/workspace/suckless/dwm/fonts/* $(HOME)/.local/share/fonts/
-	cd $(HOME)/workspace/suckless/dwm/
-	sudo make clean install
+	cd $(HOME)/workspace/suckless/dwm/dwm && sudo make clean install
 	git clone https://github.com/Johnsonnn64/newdmenu $(HOME)/workspace/suckless/dmenu/
-	cd $(HOME)/workspace/suckless/dmenu/
-	sudo make clean install
+	cd $(HOME)/workspace/suckless/dmenu/ && sudo make clean install
 
 fcitx5:
 	$(PACMAN) $(FCITX5)
@@ -74,8 +78,7 @@ lf:
 	$(LN) $(PWD)/lf $(HOME)/.config/
 	$(MKDIR) $(HOME)/workspace/git/
 	git clone https://github.com/cirala/lfimg $(HOME)/workspace/git/lfimg
-	cd $(HOME)/workspace/git/lfimg
-	make install
+	cd $(HOME)/workspace/git/lfimg && make install
 
 mpv:
 	$(PACMAN) mpv
@@ -91,6 +94,11 @@ nsxiv:
 	yay -S nsxiv
 	$(MKDIR) $(HOME)/.config/nsxiv/exec/
 	$(LN) $(PWD)/key-handler $(HOME)/.config/nsxiv/exec/
+
+nvim:
+	yay -S neovim-git
+	$(MKDIR) $(HOME)/.config
+	git clone https://github.com/Johnsonnn64/gitnvim $(HOME)/.config/nvim
 
 pcspkr:
 	$(MKDIR) /etc/modprobe.d/
@@ -125,8 +133,7 @@ terminal:
 	$(PACMAN) alacritty
 	$(LN) $(PWD)/alacritty.yml $(HOME)/.config/
 	git clone https://github.com/Johnsonnn64/st $(HOME)/workspace/suckless/st
-	cd $(HOME)/workspace/suckless/st
-	sudo make clean install
+	cd $(HOME)/workspace/suckless/st && sudo make clean install
 
 tlp:
 	$(PACMAN) tlp
@@ -137,14 +144,28 @@ xorg:
 	$(LN) $(PWD)/x11 $(HOME)/.config/
 	cat $(PWD)/xserverrc | sudo tee /etc/X11/xinit/xserverrc
 
-yay:
-	$(MKDIR) $(HOME)/workspace/git
-	cd $(HOME)/workspace/git
-	git clone https://aur.archlinux.org/yay.git
-	cd yay
-	makepkg -si
-
-zathura:
+pdf:
 	$(PACMAN) zathura zathura-pdf-poppler
 	$(LN) $(PWD)/zathura $(HOME)/.config/
 
+everything: 
+	#make base
+	#make script
+	#make driver
+	#make dunst
+	#make dwm
+	#make fcitx5
+	#make fonts
+	#make keyd
+	#make lf
+	#make mpv
+	#make npm
+	#make nsxiv
+	#make pcspkr
+	#make picom
+	#make qutebrowser
+	#make shell
+	#make terminal
+	#make tlp 
+	#make xorg
+	#make zathura

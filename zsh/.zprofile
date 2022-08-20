@@ -26,6 +26,7 @@ export EDITOR="nvim"
 export $(dbus-launch)
 # [ -f ~/.cache/lf/icons ] && source ~/.cache/lf/icons
 export FZF_DEFAULT_OPTS="--height 40% --layout=reverse --border --color=16,border:4"
+source /etc/locale.conf
 
 # fcitx
 export GTK_IM_MODULE=fcitx
