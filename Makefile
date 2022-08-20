@@ -1,6 +1,6 @@
 MKDIR = mkdir -p
 LN = ln -vsf
-PACMAN = sudo pacman --noconfirm -S
+PACMAN = sudo pacman -S
 
 DRIVERS = libva-mesa-driver mesa-vdpau
 
