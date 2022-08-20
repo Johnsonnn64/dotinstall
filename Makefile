@@ -22,11 +22,11 @@ XORG += xorg-xhost xorg-xinit xorg-xinput xorg-xkbcomp xorg-xkbevd xorg-xkbutils
 XORG += xorg-xlsclients xorg-xmodmap xorg-xpr xorg-xprop xorg-xrandr xorg-xrdb xorg-xrefresh xorg-xset 
 XORG += xorg-xsetroot xorg-xvinfo xorg-xwd xorg-xwininfo xorg-xwud xorgproto xsel
 
-# yay:
-#	$(MKDIR) $(HOME)/workspace/git/
-#	cd $(HOME)/workspace/git/
-#	git clone https://aur.archlinux.org/yay.git $(HOME)/workspace/git/yay
-#	cd $(HOME)/workspace/git/yay && makepkg -si
+yay:
+	$(MKDIR) $(HOME)/workspace/git/
+	cd $(HOME)/workspace/git/
+	git clone https://aur.archlinux.org/yay.git $(HOME)/workspace/git/yay
+	cd $(HOME)/workspace/git/yay && makepkg -si
 
 base:
 	$(PACMAN) $(BASE)
