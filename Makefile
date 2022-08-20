@@ -40,6 +40,12 @@ base:
 
 	yay -S $(AUR)
 
+btop:
+	$(PACMAN) btop
+	$(MKDIR) $(HOME)/.config/btop/themes/
+	git clone https://github.com/catppuccin/btop $(HOME)/workspace/git/catppuccin-btop
+	cp $(HOME)/workspace/git/catppuccin-btop/catppuccin_mocha.theme $(HOME)/.config/btop/themes/
+
 script:
 	$(MKDIR) $(HOME)/.local/
 	$(LN) $(PWD)/bin/ $(HOME)/.local/
