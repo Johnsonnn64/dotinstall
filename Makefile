@@ -116,6 +116,8 @@ nvim:
 	yay -S neovim-git
 	$(MKDIR) $(HOME)/.config
 	git clone https://github.com/Johnsonnn64/gitnvim $(HOME)/.config/nvim
+	# TSInstall c cpp comment javascript lua nix python markdown markdown_inline html help
+	# LspInstall clangd sumneko_lua html cssls tsserver bashls
 
 pcspkr:
 	$(MKDIR) /etc/modprobe.d/
