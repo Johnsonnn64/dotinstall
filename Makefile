@@ -30,6 +30,7 @@ yay:
 
 base:
 	$(PACMAN) $(BASE)
+	sudo sed -i 's/\#Color/Color\nILoveCandy/' /etc/pacman.conf
 	yay -S $(AUR)
 
 script:
