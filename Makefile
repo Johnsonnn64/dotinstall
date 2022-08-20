@@ -78,6 +78,14 @@ fcitx5:
 	$(LN) $(PWD)/config $(HOME)/.config/fcitx5/
 	$(LN) $(PWD)/profile $(HOME)/.config/fcitx5/
 
+filemanager:
+	yay -S lf
+	$(PACMAN) ueberzug bat 
+	$(LN) $(PWD)/lf $(HOME)/.config/
+	$(MKDIR) $(HOME)/workspace/git/
+	git clone https://github.com/cirala/lfimg $(HOME)/workspace/git/lfimg
+	cd $(HOME)/workspace/git/lfimg && make install
+
 fonts:
 	$(PACMAN) $(FONTS) 
 
