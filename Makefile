@@ -140,6 +140,8 @@ picom:
 
 pipewire:
 	$(PACMAN) pipewire-pulse pipewire-jack wireplumber qjackctl
+	$(MKDIR) $(HOME)/.config/
+	$(LN) $(PWD)/wireplumber $(HOME)/.config/
 
 qutebrowser:
 	$(PACMAN) qutebrowser 
