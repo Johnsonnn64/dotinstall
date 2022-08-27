@@ -4,7 +4,7 @@ PACMAN = sudo pacman -S
 
 DRIVERS = libva-mesa-driver mesa-vdpau
 
-AUR := ani-cli-git simple-mtpfs
+AUR := ani-cli-git simple-mtpfs dragon-drop
 
 BASE := bc bluez bluez-utils calcurse clipmenu feh firefox fzf lazygit man ncdu pacman-contrib
 BASE += playerctl powertop pulsemixer ripgrep scrot unclutter unzip wget words xclip yt-dlp
