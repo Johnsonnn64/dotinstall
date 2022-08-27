@@ -49,6 +49,13 @@ btop:
 script:
 	$(MKDIR) $(HOME)/.local/
 	$(LN) $(PWD)/bin/ $(HOME)/.local/
+discord: #discocss
+	$(PACMAN) discord
+	git clone https://github.com/mlvzk/discocss $(HOME)/workspace/git/discocss
+	cd $(HOME)/workspace/git/discocss && sudo cp discocss /usr/bin
+	git clone https://github.com/catppuccin/discord $(HOME)/workspace/git/catppuccin-discord
+	$(MKDIR) $(HOME)/.config/discocss
+	cd $(HOME)/workspace/git/catppuccin-discord && cp main.css $(HOME)/.config/discocss/custom.css
 
 driver: 
 	$(PACMAN) $(DRIVERS)
