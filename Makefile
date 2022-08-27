@@ -6,7 +6,7 @@ DRIVERS = libva-mesa-driver mesa-vdpau
 
 AUR := ani-cli-git simple-mtpfs
 
-BASE := bc bluez bluez-utils calcurse clipmenu discord feh firefox fzf lazygit man ncdu pacman-contrib
+BASE := bc bluez bluez-utils calcurse clipmenu feh firefox fzf lazygit man ncdu pacman-contrib
 BASE += playerctl powertop pulseaudio pulseaudio-bluetooth pulsemixer ripgrep scrot unclutter 
 BASE += unzip wget words xclip yt-dlp  
 
