@@ -7,8 +7,7 @@ DRIVERS = libva-mesa-driver mesa-vdpau
 AUR := ani-cli-git simple-mtpfs
 
 BASE := bc bluez bluez-utils calcurse clipmenu feh firefox fzf lazygit man ncdu pacman-contrib
-BASE += playerctl powertop pulseaudio pulseaudio-bluetooth pulsemixer ripgrep scrot unclutter 
-BASE += unzip wget words xclip yt-dlp  
+BASE += playerctl powertop pulsemixer ripgrep scrot unclutter unzip wget words xclip yt-dlp
 
 FCITX5 := fcitx5-im fcitx5-hangul fcitx5-mozc 
 
@@ -139,6 +138,9 @@ picom:
 	$(MKDIR) $(HOME)/.config/picom/
 	$(LN) $(PWD)/picom.conf $(HOME)/.config/picom/
 
+pipewire:
+	$(PACMAN) pipewire-pulse pipewire-jack wireplumber qjackctl
+
 qutebrowser:
 	$(PACMAN) qutebrowser 
 	$(LN) $(PWD)/qutebrowser/ $(HOME)/.config/
@@ -193,4 +195,4 @@ ytmusic:
 	$(LN) $(PWD)/config.json $(HOME)/.config/YouTube\ Music/config.json
 
 everything: 
-	make yay base desktop discord driver dunst dwm fcitx5 fnkeys fonts keyd lf mpv npm nsxiv pcspkr pdf picom qutebrowser script shell st tlp xdg-open xorg ytmusic
+	make yay base desktop discord driver dunst dwm fcitx5 fnkeys fonts keyd lf mpv npm nsxiv pcspkr pdf picom pipewire qutebrowser script shell st tlp xdg-open xorg ytmusic
