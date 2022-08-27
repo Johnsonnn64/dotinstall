@@ -45,6 +45,10 @@ btop:
 	git clone https://github.com/catppuccin/btop $(HOME)/workspace/git/catppuccin-btop
 	cp $(HOME)/workspace/git/catppuccin-btop/catppuccin_mocha.theme $(HOME)/.config/btop/themes/
 
+desktop:
+	$(MKDIR) $(HOME)/.local/share/
+	$(LN) $(PWD)/applications $(HOME)/.local/share/
+
 discord: #discocss
 	$(PACMAN) discord
 	git clone https://github.com/mlvzk/discocss $(HOME)/workspace/git/discocss
@@ -168,6 +172,10 @@ tlp:
 	$(PACMAN) tlp
 	sudo $(LN) $(PWD)/tlp.conf /etc/tlp.conf
 
+xdg-open:
+	$(MKDIR) $(HOME)/.config/
+	$(LN) $(PWD)/mimeapps.list $(HOME)/.config/
+
 xorg:
 	$(PACMAN) $(XORG)
 	$(LN) $(PWD)/x11 $(HOME)/.config/
@@ -185,4 +193,4 @@ ytmusic:
 	$(LN) $(PWD)/config.json $(HOME)/.config/YouTube\ Music/config.json
 
 everything: 
-	make yay base discord driver dunst dwm fcitx5 fnkeys fonts keyd lf mpv npm nsxiv pcspkr pdf picom qutebrowser script shell st tlp xorg ytmusic
+	make yay base desktop discord driver dunst dwm fcitx5 fnkeys fonts keyd lf mpv npm nsxiv pcspkr pdf picom qutebrowser script shell st tlp xdg-open xorg ytmusic
