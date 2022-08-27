@@ -27,6 +27,9 @@ yay:
 	cd $(HOME)/workspace/git/
 	git clone https://aur.archlinux.org/yay.git $(HOME)/workspace/git/yay
 	cd $(HOME)/workspace/git/yay && makepkg -si
+alacritty:
+	$(PACMAN) alacritty
+	$(LN) $(PWD)/alacritty.yml $(HOME)/.config/
 
 base:
 	$(PACMAN) $(BASE)
@@ -155,9 +158,7 @@ shell:
 	sudo ln -sfT /bin/dash /bin/sh
 	echo "[Trigger] \nType = Package \nOperation = Install \nOperation = Upgrade \nTarget = bash \n\n[Action] \nDescription = Re-pointing /bin/sh symlink to dash... \nWhen = PostTransaction \nExec = /usr/bin/ln -sfT dash /usr/bin/sh \nDepends = dash" | sudo tee /usr/share/libalpm/hooks/bash-update.hook
 
-terminal:
-	$(PACMAN) alacritty
-	$(LN) $(PWD)/alacritty.yml $(HOME)/.config/
+st:
 	git clone https://github.com/Johnsonnn64/st $(HOME)/workspace/suckless/st
 	cd $(HOME)/workspace/suckless/st && sudo make clean install
 
