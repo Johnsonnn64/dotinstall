@@ -183,4 +183,4 @@ ytmusic:
 	$(LN) $(PWD)/config.json $(HOME)/.config/YouTube\ Music/config.json
 
 everything: 
-	make yay base driver dunst dwm fcitx5 filemanager fnkeys fonts keyd mpv npm nsxiv pcspkr pdf picom qutebrowser script shell terminal tlp xorg zathura
+	make yay base discord driver dunst dwm fcitx5 filemanager fnkeys fonts keyd mpv npm nsxiv pcspkr pdf picom qutebrowser script shell st tlp xorg ytmusic
