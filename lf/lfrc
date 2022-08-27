@@ -28,7 +28,7 @@ map n
 
 # my mappings
 map D delete
-map S $nsxiv $PWD/* -ta
+map S $nsxiv $PWD/* -tar
 map nd push $mkdir<space>
 map nf push $touch<space>
 map dl %dragon-dl

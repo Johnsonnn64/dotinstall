@@ -2,7 +2,8 @@
 
 cat ~/.cache/brightness | sudo tee /sys/class/backlight/*/brightness
 picom -b &
-pulseaudio --start --log-target=syslog &
+# for pulseaudio
+# pulseaudio --start --log-target=syslog &
 fcitx5 &
 clipmenud  &
 dunst &

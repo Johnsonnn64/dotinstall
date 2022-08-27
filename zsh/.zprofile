@@ -27,6 +27,7 @@ export $(dbus-launch)
 # [ -f ~/.cache/lf/icons ] && source ~/.cache/lf/icons
 export FZF_DEFAULT_OPTS="--height 40% --layout=reverse --border --color=16,border:4"
 source /etc/locale.conf
+WINIT_X11_SCALE_FACTOR=1 # alacritty dpi scaling
 
 # fcitx
 export GTK_IM_MODULE=fcitx
