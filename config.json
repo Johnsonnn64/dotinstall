@@ -1,0 +1,101 @@
+{
+	"window-size": {
+		"width": 975,
+		"height": 550
+	},
+	"url": "https://music.youtube.com/watch?v=n0ph8RAhXxA&list=RDAMVM0H_XiZS8Z1c&index=0",
+	"options": {
+		"tray": false,
+		"appVisible": true,
+		"autoUpdates": true,
+		"hideMenu": true,
+		"startAtLogin": false,
+		"disableHardwareAcceleration": false,
+		"restartOnConfigChanges": false,
+		"trayClickPlayPause": true,
+		"autoResetAppCache": false,
+		"resumeOnStart": true,
+		"proxy": "",
+		"singleInstanceLock": true,
+		"hideMenuWarned": true
+	},
+	"plugins": {
+		"navigation": {
+			"enabled": false
+		},
+		"adblocker": {
+			"enabled": false,
+			"cache": true,
+			"additionalBlockLists": []
+		},
+		"shortcuts": {
+			"enabled": true,
+			"overrideMediaKeys": false,
+			"global": {
+				"previous": "Alt+F11",
+				"playPause": "",
+				"next": "Alt+F12"
+			}
+		},
+		"downloader": {
+			"enabled": true,
+			"ffmpegArgs": [],
+			"preset": "mp3",
+			"downloadFolder": "/home/john/personal/offline"
+		},
+		"last-fm": {
+			"enabled": false,
+			"api_root": "http://ws.audioscrobbler.com/2.0/",
+			"api_key": "04d76faaac8726e60988e14c105d421a",
+			"secret": "a5d2a36fdf64819290f6982481eaffa2"
+		},
+		"discord": {
+			"enabled": false,
+			"activityTimoutEnabled": true,
+			"activityTimoutTime": 600000,
+			"listenAlong": true
+		},
+		"notifications": {
+			"enabled": true,
+			"unpauseNotification": true,
+			"urgency": "normal",
+			"interactive": false
+		},
+		"precise-volume": {
+			"enabled": false,
+			"steps": 1,
+			"arrowsShortcut": true,
+			"globalShortcuts": {
+				"volumeUp": "",
+				"volumeDown": ""
+			}
+		},
+		"sponsorblock": {
+			"enabled": false,
+			"apiURL": "https://sponsor.ajay.app",
+			"categories": [
+				"sponsor",
+				"intro",
+				"outro",
+				"interaction",
+				"selfpromo",
+				"music_offtopic"
+			]
+		},
+		"video-toggle": {
+			"enabled": true,
+			"mode": "custom",
+			"forceHide": true
+		}
+	},
+	"__internal__": {
+		"migrations": {
+			"version": "1.17.0"
+		}
+	},
+	"window-position": {
+		"x": -1956,
+		"y": 265
+	},
+	"window-maximized": false
+}

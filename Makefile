@@ -173,6 +173,10 @@ xorg:
 pdf:
 	$(PACMAN) zathura zathura-pdf-poppler
 	$(LN) $(PWD)/zathura $(HOME)/.config/
+ytmusic:
+	yay -S youtube-music-bin
+	$(MKDIR) $(HOME)/.config/YouTube\ Music/
+	$(LN) $(PWD)/config.json $(HOME)/.config/YouTube\ Music/config.json
 
 everything: 
 	make yay base driver dunst dwm fcitx5 filemanager fnkeys fonts keyd mpv npm nsxiv pcspkr pdf picom qutebrowser script shell terminal tlp xorg zathura
