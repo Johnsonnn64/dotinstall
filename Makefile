@@ -22,11 +22,6 @@ XORG += xorg-xhost xorg-xinit xorg-xinput xorg-xkbcomp xorg-xkbevd xorg-xkbutils
 XORG += xorg-xlsclients xorg-xmodmap xorg-xpr xorg-xprop xorg-xrandr xorg-xrdb xorg-xrefresh xorg-xset 
 XORG += xorg-xsetroot xorg-xvinfo xorg-xwd xorg-xwininfo xorg-xwud xorgproto xsel
 
-yay:
-	$(MKDIR) $(HOME)/workspace/git/
-	cd $(HOME)/workspace/git/
-	git clone https://aur.archlinux.org/yay.git $(HOME)/workspace/git/yay
-	cd $(HOME)/workspace/git/yay && makepkg -si
 alacritty:
 	$(PACMAN) alacritty
 	$(LN) $(PWD)/alacritty.yml $(HOME)/.config/
@@ -40,7 +35,6 @@ base:
 		sudo pacman-key --populate archlinux
 		sudo sed -i '/\# If you want to run .*/i \[extra\]\nInclude \= \/etc\/pacman.d\/mirrorlist-arch\n\n\[community\]\nInclude \= \/etc\/pacman.d\/mirrorlist-arch' /etc/pacman.conf
 	fi
-
 	yay -S $(AUR)
 
 btop:
@@ -49,9 +43,6 @@ btop:
 	git clone https://github.com/catppuccin/btop $(HOME)/workspace/git/catppuccin-btop
 	cp $(HOME)/workspace/git/catppuccin-btop/catppuccin_mocha.theme $(HOME)/.config/btop/themes/
 
-script:
-	$(MKDIR) $(HOME)/.local/
-	$(LN) $(PWD)/bin/ $(HOME)/.local/
 discord: #discocss
 	$(PACMAN) discord
 	git clone https://github.com/mlvzk/discocss $(HOME)/workspace/git/discocss
@@ -133,6 +124,10 @@ pcspkr:
 	$(MKDIR) /etc/modprobe.d/
 	echo "blacklist pcspkr" | sudo tee /etc/modprobe.d/blacklist.conf
 
+pdf:
+	$(PACMAN) zathura zathura-pdf-poppler
+	$(LN) $(PWD)/zathura $(HOME)/.config/
+
 picom:
 	yay -S picom-jonaburg-fix
 	$(MKDIR) $(HOME)/.config/picom/
@@ -141,6 +136,9 @@ picom:
 qutebrowser:
 	$(PACMAN) qutebrowser 
 	$(LN) $(PWD)/qutebrowser/ $(HOME)/.config/
+script:
+	$(MKDIR) $(HOME)/.local/
+	$(LN) $(PWD)/bin/ $(HOME)/.local/
 
 shell:
 	$(PACMAN) zsh dash starship # dash for substitute of bash
@@ -171,9 +169,12 @@ xorg:
 	$(LN) $(PWD)/x11 $(HOME)/.config/
 	cat $(PWD)/xserverrc | sudo tee /etc/X11/xinit/xserverrc
 
-pdf:
-	$(PACMAN) zathura zathura-pdf-poppler
-	$(LN) $(PWD)/zathura $(HOME)/.config/
+yay:
+	$(MKDIR) $(HOME)/workspace/git/
+	cd $(HOME)/workspace/git/
+	git clone https://aur.archlinux.org/yay.git $(HOME)/workspace/git/yay
+	cd $(HOME)/workspace/git/yay && makepkg -si
+
 ytmusic:
 	yay -S youtube-music-bin
 	$(MKDIR) $(HOME)/.config/YouTube\ Music/
