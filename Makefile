@@ -136,6 +136,8 @@ picom:
 qutebrowser:
 	$(PACMAN) qutebrowser 
 	$(LN) $(PWD)/qutebrowser/ $(HOME)/.config/
+	git clone https://github.com/catppuccin/qutebrowser $(HOME)/.config/qutebrowser/catppuccin/
+
 script:
 	$(MKDIR) $(HOME)/.local/
 	$(LN) $(PWD)/bin/ $(HOME)/.local/
