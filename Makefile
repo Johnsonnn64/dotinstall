@@ -50,8 +50,7 @@ desktop:
 
 discord: #discocss
 	$(PACMAN) discord
-	git clone https://github.com/mlvzk/discocss $(HOME)/workspace/git/discocss
-	cd $(HOME)/workspace/git/discocss && sudo cp discocss /usr/bin
+	yay -S discocss-git
 	git clone https://github.com/catppuccin/discord $(HOME)/workspace/git/catppuccin-discord
 	$(MKDIR) $(HOME)/.config/discocss
 	cd $(HOME)/workspace/git/catppuccin-discord && cp main.css $(HOME)/.config/discocss/custom.css
