@@ -22,6 +22,8 @@ XORG += xorg-xhost xorg-xinit xorg-xinput xorg-xkbcomp xorg-xkbevd xorg-xkbutils
 XORG += xorg-xlsclients xorg-xmodmap xorg-xpr xorg-xprop xorg-xrandr xorg-xrdb xorg-xrefresh xorg-xset 
 XORG += xorg-xsetroot xorg-xvinfo xorg-xwd xorg-xwininfo xorg-xwud xorgproto xsel
 
+.PHONY: qutebrowser lf
+
 alacritty:
 	$(PACMAN) alacritty
 	$(LN) $(PWD)/alacritty.yml $(HOME)/.config/
@@ -79,14 +81,6 @@ fcitx5:
 	$(LN) $(PWD)/config $(HOME)/.config/fcitx5/
 	$(LN) $(PWD)/profile $(HOME)/.config/fcitx5/
 
-filemanager:
-	yay -S lf
-	$(PACMAN) ueberzug bat 
-	$(LN) $(PWD)/lf $(HOME)/.config/
-	$(MKDIR) $(HOME)/workspace/git/
-	git clone https://github.com/cirala/lfimg $(HOME)/workspace/git/lfimg
-	cd $(HOME)/workspace/git/lfimg && make install
-
 fnkeys: 
 	echo options hid_apple fnmode=2 | sudo tee -a /etc/modprobe.d/hid_apple.conf
 
@@ -97,6 +91,14 @@ keyd:
 	yay -S keyd
 	$(MKDIR) /etc/keyd/
 	sudo $(LN) $(PWD)/default.conf /etc/keyd/
+
+lf:
+	yay -S lf
+	$(PACMAN) ueberzug bat 
+	$(LN) $(PWD)/lf $(HOME)/.config/
+	$(MKDIR) $(HOME)/workspace/git/
+	git clone https://github.com/cirala/lfimg $(HOME)/workspace/git/lfimg
+	cd $(HOME)/workspace/git/lfimg && make install
 
 mpv:
 	$(PACMAN) mpv
