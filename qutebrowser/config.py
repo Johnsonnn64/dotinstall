@@ -156,7 +156,7 @@ config.set('fileselect.single_file.command', ["st", "-n", "fcen", "-g", "120x30"
 config.set('fileselect.multiple_files.command', ["st", "-n", "fcen", "-g", "120x30", "-e", "lfrun", "-selection-path={}"])
 
 #fonts
-config.set('fonts.default_family', 'JetBrainsMonoMedium Nerd Font')
+config.set('fonts.default_family', 'JetBrainsMono Nerd Font')
 config.set('fonts.default_size', '9pt')
 
 # Default zoom
