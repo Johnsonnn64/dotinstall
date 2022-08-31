@@ -14,7 +14,7 @@ FCITX5 := fcitx5-im fcitx5-hangul fcitx5-mozc
 FONTS := adobe-source-han-sans-jp-fonts adobe-source-han-sans-kr-fonts ttf-hanazono ttf-joypixels
 
 XORG := xdotool xf86-input-libinput xf86-video-amdgpu xf86-video-vesa xkeyboard-config 
-XORG += xorg-fonts-encodings xorg-server xorg-server-common xorg-server-devel xorg-server-xephyr 
+XORG += xorg-fonts-encodings xorg-mkfontscale xorg-server xorg-server-common xorg-server-devel xorg-server-xephyr 
 XORG += xorg-server-xnest xorg-server-xvfb xorg-setxkbmap xorg-smproxy xorg-util-macros xorg-x11perf 
 XORG += xorg-xauth xorg-xcmsdb xorg-xcursorgen xorg-xdpyinfo xorg-xdriinfo xorg-xev xorg-xgamma 
 XORG += xorg-xhost xorg-xinit xorg-xinput xorg-xkbcomp xorg-xkbevd xorg-xkbutils xorg-xkill xorg-xlsatoms 
