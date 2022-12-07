@@ -21,7 +21,7 @@ XORG += xorg-xhost xorg-xinit xorg-xinput xorg-xkbcomp xorg-xkbevd xorg-xkbutils
 XORG += xorg-xlsclients xorg-xmodmap xorg-xpr xorg-xprop xorg-xrandr xorg-xrdb xorg-xrefresh xorg-xset 
 XORG += xorg-xsetroot xorg-xvinfo xorg-xwd xorg-xwininfo xorg-xwud xorgproto xsel
 
-.PHONY: qutebrowser lf
+.PHONY: lf
 
 alacritty:
 	$(PACMAN) alacritty
@@ -29,12 +29,12 @@ alacritty:
 
 base:
 	sudo sed -i 's/\#Color/Color\nILoveCandy/' /etc/pacman.conf
-	# sudo sed -i '/\# If you want to run .*/i \[universe\]\nServer \= https\:\/\/universe\.artixlinux\.org\/\$arch\n' /etc/pacman.conf
 	sudo pacman -Sy
-	$(PACMAN) artix-archlinux-support
-	sudo pacman-key --populate archlinux
-	sudo sed -i '/\# If you want to run .*/i \[extra\]\nInclude \= \/etc\/pacman.d\/mirrorlist-arch\n\n\[community\]\nInclude \= \/etc\/pacman.d\/mirrorlist-arch' /etc/pacman.conf
 	$(PACMAN) $(BASE)
+	$(MKDIR) $(HOME)/workspace/git/
+	cd $(HOME)/workspace/git/
+	git clone https://aur.archlinux.org/yay.git $(HOME)/workspace/git/yay
+	cd $(HOME)/workspace/git/yay && makepkg -si
 	yay -S $(AUR)
 
 btop:
@@ -151,11 +151,6 @@ pipewire:
 	$(MKDIR) $(HOME)/.config/
 	$(LN) $(PWD)/wireplumber $(HOME)/.config/
 
-qutebrowser:
-	$(PACMAN) qutebrowser 
-	$(LN) $(PWD)/qutebrowser/ $(HOME)/.config/
-	git clone https://github.com/catppuccin/qutebrowser $(HOME)/.config/qutebrowser/catppuccin/
-
 script:
 	$(MKDIR) $(HOME)/.local/
 	$(LN) $(PWD)/bin/ $(HOME)/.local/
@@ -193,12 +188,6 @@ xorg:
 	$(LN) $(PWD)/x11 $(HOME)/.config/
 	cat $(PWD)/xserverrc | sudo tee /etc/X11/xinit/xserverrc
 
-yay:
-	$(MKDIR) $(HOME)/workspace/git/
-	cd $(HOME)/workspace/git/
-	git clone https://aur.archlinux.org/yay.git $(HOME)/workspace/git/yay
-	cd $(HOME)/workspace/git/yay && makepkg -si
-
 ytmusic:
 	yay -S youtube-music-bin
 	$(MKDIR) $(HOME)/.config/YouTube\ Music/
@@ -206,4 +195,4 @@ ytmusic:
 
 everything: 
 	# make desktop discord driver dunst dwm 
-	make fcitx5 fnkeys fonts git keyd lf mpv npm nsxiv pcspkr pdf picom pipewire qutebrowser script shell st tlp xdg-open xorg ytmusic
+	make fcitx5 fnkeys fonts git keyd lf mpv npm nsxiv pcspkr pdf picom pipewire script shell st tlp xdg-open xorg ytmusic
