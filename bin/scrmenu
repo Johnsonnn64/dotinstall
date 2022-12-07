@@ -1,0 +1,7 @@
+#!/bin/sh
+
+layouts="/home/john/personal/screenlayout/"
+
+chosen=$(ls -1 $layouts | dmenu "$@" -i)
+
+$layouts$chosen

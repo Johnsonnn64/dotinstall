@@ -5,8 +5,8 @@ urlregex="(((http|https)://|www\\.)[a-zA-Z0-9.]*[:]?[a-zA-Z0-9./@$&%?$\#=_~-]*)|
 urls="$(sed 's/.*│//g' | tr -d '\n' |
 	grep -aEo "$urlregex" | # grep only urls as defined above.
 	uniq | # Ignore neighboring duplicates.
-	sed 's/^www./http:\/\/www\./g')"
+	sed 's/^www./https:\/\/www\./g')"
 
 [ -z "$urls" ] && exit
 
-echo "$urls" | dmenu -i -p 'Follow which url?' -l 10 -w "$WINDOWID" | xclip -selection clipboard
+echo "$urls" | dmenu -i -p 'Follow which url?' -l 10 | xclip -selection clipboard

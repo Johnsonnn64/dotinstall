@@ -59,7 +59,6 @@ font:
   glyph_offset:
     x: 0
     y: 0
-  use_thin_strokes: false
   builtin_box_drawing: true
 
 colors: 
@@ -85,7 +84,7 @@ colors:
     focused_match:
       foreground: '#1E1E2E' # base
       background: '#A6E3A1' # green
-    bar:
+    footer_bar:
       foreground: '#1E1E2E' # base
       background: '#A6ADC8' # subtext0
   # Keyboard regex hints
@@ -386,6 +385,7 @@ hints:
 # If the same trigger is assigned to multiple actions, all of them are executed
 # in the order they were defined in.
 key_bindings:
+  - { key: Return,   mods: Control|Alt,                action: SpawnNewInstance }
   #- { key: Paste,                                       action: Paste          }
   #- { key: Copy,                                        action: Copy           }
   #- { key: L,         mods: Control,                    action: ClearLogNotice }

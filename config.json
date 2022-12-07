@@ -1,9 +1,9 @@
 {
 	"window-size": {
-		"width": 975,
-		"height": 550
+		"width": 953,
+		"height": 525
 	},
-	"url": "https://music.youtube.com/watch?v=n0ph8RAhXxA&list=RDAMVM0H_XiZS8Z1c&index=0",
+	"url": "https://music.youtube.com/watch?v=22HcmDddONo&list=RDAMVMuQFBQu-huD0&index=0",
 	"options": {
 		"tray": false,
 		"appVisible": true,
@@ -17,7 +17,8 @@
 		"resumeOnStart": true,
 		"proxy": "",
 		"singleInstanceLock": true,
-		"hideMenuWarned": true
+		"hideMenuWarned": true,
+		"themes": []
 	},
 	"plugins": {
 		"navigation": {
@@ -29,7 +30,7 @@
 			"additionalBlockLists": []
 		},
 		"shortcuts": {
-			"enabled": true,
+			"enabled": false,
 			"overrideMediaKeys": false,
 			"global": {
 				"previous": "Alt+F11",
@@ -90,12 +91,12 @@
 	},
 	"__internal__": {
 		"migrations": {
-			"version": "1.17.0"
+			"version": "1.18.0"
 		}
 	},
 	"window-position": {
-		"x": -1956,
-		"y": 265
+		"x": -1912,
+		"y": 277
 	},
 	"window-maximized": false
 }

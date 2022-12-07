@@ -5,7 +5,7 @@ rule = {
     },
   },
   apply_properties = {
-    ["node.description"] = "Earphones",
+    ["node.description"] = "Laptop",
   },
 }
 

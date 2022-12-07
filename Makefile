@@ -28,14 +28,13 @@ alacritty:
 	$(LN) $(PWD)/alacritty.yml $(HOME)/.config/
 
 base:
-	$(PACMAN) $(BASE)
 	sudo sed -i 's/\#Color/Color\nILoveCandy/' /etc/pacman.conf
-	if [ $(uname --nodename) = "artix" ]; then
-		sudo sed -i '/\# If you want to run .*/i \[universe\]\nServer \= https\:\/\/universe\.artixlinux\.org\/\$arch\n' /etc/pacman.conf
-		$(PACMAN) artix-archlinux-support
-		sudo pacman-key --populate archlinux
-		sudo sed -i '/\# If you want to run .*/i \[extra\]\nInclude \= \/etc\/pacman.d\/mirrorlist-arch\n\n\[community\]\nInclude \= \/etc\/pacman.d\/mirrorlist-arch' /etc/pacman.conf
-	fi
+	# sudo sed -i '/\# If you want to run .*/i \[universe\]\nServer \= https\:\/\/universe\.artixlinux\.org\/\$arch\n' /etc/pacman.conf
+	sudo pacman -Sy
+	$(PACMAN) artix-archlinux-support
+	sudo pacman-key --populate archlinux
+	sudo sed -i '/\# If you want to run .*/i \[extra\]\nInclude \= \/etc\/pacman.d\/mirrorlist-arch\n\n\[community\]\nInclude \= \/etc\/pacman.d\/mirrorlist-arch' /etc/pacman.conf
+	$(PACMAN) $(BASE)
 	yay -S $(AUR)
 
 btop:
@@ -43,6 +42,12 @@ btop:
 	$(MKDIR) $(HOME)/.config/btop/themes/
 	git clone https://github.com/catppuccin/btop $(HOME)/workspace/git/catppuccin-btop
 	cp $(HOME)/workspace/git/catppuccin-btop/catppuccin_mocha.theme $(HOME)/.config/btop/themes/
+
+catppuccin: # themes
+	yay -S catppuccin-mocha-grub-theme-git catppuccin-gtk-theme-mocha
+	sudo sed -i 's/#GRUB_THEME.*/GRUB_THEME="\/usr\/share\/grub\/themes\/catppuccin-mocha"/' /etc/default/grub
+	sudo grub-mkconfig -o /boot/grub/grub.cfg
+	echo '[Settings]\ngtk-theme-name = Catppuccin-Mocha' > $(HOME)/.config/gtk-3.0/settings.ini
 
 desktop:
 	$(MKDIR) $(HOME)/.local/share/
@@ -74,7 +79,7 @@ dwm:
 	$(MKDIR) $(HOME)/.local/share/fonts/
 	cp $(HOME)/workspace/suckless/dwm/fonts/* $(HOME)/.local/share/fonts/
 	cd $(HOME)/workspace/suckless/dwm/dwm && sudo make clean install
-	git clone https://github.com/Johnsonnn64/newdmenu $(HOME)/workspace/suckless/dmenu/
+	git clone https://github.com/Johnsonnn64/dmenu $(HOME)/workspace/suckless/dmenu/
 	cd $(HOME)/workspace/suckless/dmenu/ && sudo make clean install
 
 fcitx5:
@@ -88,6 +93,10 @@ fnkeys:
 
 fonts:
 	$(PACMAN) $(FONTS) 
+
+git:
+	$(MKDIR) $(HOME)/.config/git/
+	$(LN) $(PWD)/gitconfig $(HOME)/.config/git/config
 
 keyd:
 	yay -S keyd
@@ -122,7 +131,7 @@ nvim:
 	$(MKDIR) $(HOME)/.config
 	git clone https://github.com/Johnsonnn64/gitnvim $(HOME)/.config/nvim
 	git clone --depth 1 https://github.com/wbthomason/packer.nvim $(HOME)/.local/share/nvim/site/pack/packer/start/packer.nvim
-	nvim -c "TSInstall c cpp comment javascript lua nix python markdown markdown_inline html help | LspInstall clangd sumneko_lua html cssls tsserver bashls"
+	nvim -c "TSInstall c css cpp comment javascript lua python markdown markdown_inline html help | LspInstall clangd sumneko_lua html cssls tsserver bashls"
 
 pcspkr:
 	$(MKDIR) /etc/modprobe.d/
@@ -196,4 +205,5 @@ ytmusic:
 	$(LN) $(PWD)/config.json $(HOME)/.config/YouTube\ Music/config.json
 
 everything: 
-	make yay base desktop discord driver dunst dwm fcitx5 fnkeys fonts keyd lf mpv npm nsxiv pcspkr pdf picom pipewire qutebrowser script shell st tlp xdg-open xorg ytmusic
+	# make desktop discord driver dunst dwm 
+	make fcitx5 fnkeys fonts git keyd lf mpv npm nsxiv pcspkr pdf picom pipewire qutebrowser script shell st tlp xdg-open xorg ytmusic

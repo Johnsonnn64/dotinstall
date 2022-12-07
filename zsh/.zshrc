@@ -74,9 +74,19 @@ lfcd () {
     [ -d "$dir" ] && [ "$dir" != "$(pwd)" ] && cd "$dir"
   fi
 }
-bindkey -s '^o' '^ulfcd\n'
 
-~/workspace/suckless/dwm/scripts/fetch
+# fzf nvim
+vfzf () {
+  sel=$(fzf)
+  if [[ ! -z $sel ]]; then
+    nvim $sel
+  fi
+}
+
+bindkey -s '^o' '^ulfcd\n'
+bindkey -s '^e' 'vfzf\n'
+
+~/.local/bin/fetch
 alias ls="ls -F --color --group-directories-first"
 alias ll="ls -AlFh --color --group-directories-first"
 alias p="sudo pacman"

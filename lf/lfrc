@@ -7,15 +7,15 @@ set cleaner ~/.config/lf/cleaner
 set hiddenfiles ".git*"
 
 cmd open ${{
-	case $(file --mime-type "$(readlink -f $f)" -b) in
-		application/vnd.openxmlformats-officedocument.spreadsheetml.sheet) localc $fx ;;
-		image/vnd.djvu|application/pdf|application/octet-stream|application/postscript) zathura $f;;
+	case $(file --mime-type "$(readlink -f "$f")" -b) in
+		application/vnd.openxmlformats-officedocument.spreadsheetml.sheet) localc "$fx" ;;
+		image/vnd.djvu|application/pdf|application/octet-stream|application/postscript) zathura "$f";;
 		text/*|application/json|inode/x-empty) $EDITOR $fx;;
 		image/x-xcf) setsid -f gimp $f >/dev/null 2>&1 ;;
 		image/svg+xml) display -- $f ;;
-		image/*) nsxiv -a $f ;;
-		audio/*) mpv $f ;;
-		video/*) mpv $f ;;
+		image/*) nsxiv -a "$f" ;;
+		audio/*) mpv "$f" ;;
+		video/*) mpv "$f" ;;
 		application/pdf|application/vnd*|application/epub*) setsid -f zathura $fx >/dev/null 2>&1 ;;
 		application/pgp-encrypted) $EDITOR $fx ;;
         *) for f in $fx; do setsid -f $OPENER $f >/dev/null 2>&1; done;;
@@ -32,5 +32,5 @@ map S $nsxiv $PWD/* -tar
 map nd push $mkdir<space>
 map nf push $touch<space>
 map dl %dragon-dl
-map dr %dragon-drop $fx
+map dr %dragon-drop "$fx"
 map dd cut

@@ -1,0 +1,19 @@
+#!/bin/sh
+
+urlregex="(((http|https)://|www\\.)[a-zA-Z0-9.]*[:]?[a-zA-Z0-9./@$&%?$\#=_~-]*)|((magnet:\\?xt=urn:btih:)[a-zA-Z0-9]*)"
+
+# startpage
+searchengine="https://www.startpage.com/sp/search?query="
+# google
+# searchengine="https://www.google.com/search?q="
+
+prompt="$(echo 'test' | dmenu -i -p 'Firefox Search' -l 10)"
+url="$(echo $prompt | grep -Eo "$urlregex")"
+
+
+if [ $url ]; then
+  firefox --new-window $url
+else
+  firefox --new-window ${searchengine}$(echo $prompt | tr ' ' '+')
+fi
+

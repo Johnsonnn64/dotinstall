@@ -1,7 +1,7 @@
 #!/bin/sh
 
 cat ~/.cache/brightness | sudo tee /sys/class/backlight/*/brightness
-picom -b &
+# picom -b &
 # for pipewire
 pipewire &
 pipewire-pulse &
@@ -17,5 +17,5 @@ feh --bg-fill --no-fehbg ~/personal/pictures/wall.png &
 sudo keyd &
 
 # run bar script and dwm ( do not remove this )
-~/workspace/suckless/dwm/scripts/bar.sh &
+~/workspace/suckless/dwm/bar/bar.sh &
 dwm
