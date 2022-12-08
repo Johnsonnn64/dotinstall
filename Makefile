@@ -8,6 +8,7 @@ AUR := ani-cli-git simple-mtpfs dragon-drop
 
 BASE := bc bluez bluez-utils calcurse clipmenu feh firefox fzf lazygit man ncdu pacman-contrib
 BASE += playerctl powertop pulsemixer ripgrep scrot unclutter unzip wget words xclip yt-dlp
+BASE += rsync openssh arandr
 
 FCITX5 := fcitx5-im fcitx5-hangul fcitx5-mozc 
 
